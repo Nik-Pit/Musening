@@ -12,7 +12,7 @@ function App() {
   const searchSpotify = (term) => {
     console.log("Searching Spotify for:", term);
     Spotify.search(term).then((results) => {
-      console.log("Search results received:", results);
+    
       setSearchResults(results);
     });
   };
@@ -20,7 +20,6 @@ function App() {
   const addTrack = (track) => {
     if (playlistTracks.find((savedTrack) => savedTrack.id === track.id)) return;
     const updatedTracks = [...playlistTracks, track];
-    console.log("Adding track to playlist:", updatedTracks);
     setPlaylistTracks(updatedTracks);
   };
 
@@ -28,7 +27,6 @@ function App() {
     const updatedTracks = playlistTracks.filter(
       (savedTrack) => savedTrack.id !== track.id
     );
-    console.log("Removing track from playlist:", updatedTracks);
     setPlaylistTracks(updatedTracks);
   };
 
